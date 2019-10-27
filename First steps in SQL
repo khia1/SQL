@@ -1,0 +1,53 @@
+USE AdventureWorksLT2012
+GO
+
+SELECT * 
+FROM SalesLT.Address
+
+SELECT *
+FROM SalesLT.Address
+WHERE AddressID = 11
+
+SELECT *
+FROM SalesLT.Address
+WHERE AddressID = 11 OR AddressID = 25
+
+SELECT *
+FROM SalesLT.Address
+WHERE City = 'Seattle'    In SQL, we only use single quotes for strings
+
+SELECT *
+FROM SalesLT.Address
+WHERE AddressID >= 100 AND AddressID <=300
+
+SELECT *
+FROM SalesLT.Address
+WHERE AddressID BETWEEN 100 AND 300
+
+SELECT *
+FROM SalesLT.Address
+WHERE City BETWEEN 'B' AND 'D'
+
+SELECT *
+FROM SalesLT.Address
+WHERE City = 'Seattle' OR City = 'London' OR City = 'Phoenix'
+
+SELECT *
+FROM SalesLT.Address
+WHERE City IN ('Seattle', 'London', 'Phoenix')
+
+SELECT *
+FROM SalesLT.Address
+WHERE City NOT IN ('Seattle', 'London', 'Phoenix')
+
+SELECT AddressLine1, City, StateProvince, CountryRegion
+FROM SalesLT.Address
+WHERE City NOT IN ('Seattle', 'London', 'Phoenix')
+
+SELECT COUNT(*)
+FROM SalesLT.Address
+WHERE CountryRegion = 'Canada'
+
+SELECT COUNT(*)
+FROM SalesLT.Address
+WHERE City = 'Seattle'​
