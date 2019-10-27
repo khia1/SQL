@@ -1,0 +1,95 @@
+USE AdventureWorks2012
+
+GO
+
+SELECT AVG(ListPrice)
+FROM Production.Product
+WHERE ListPrice > 0 
+
+SELECT *
+FROM Production.Product
+WHERE ListPrice > 727.2624
+
+SELECT *
+FROM Production.Product
+WHERE ListPrice > 
+(
+	SELECT AVG(ListPrice)
+	FROM Production.Product
+	WHERE ListPrice > 0 
+)
+
+SELECT NationalIDNumber, BirthDate, DATEDIFF(year, BirthDate, getdate())
+FROM HumanResources.Employee
+--WHERE
+
+SELECT AVG(DATEDIFF(year, BirthDate, getdate()))
+FROM HumanResources.Employee
+
+SELECT NationalIDNumber, BirthDate, DATEDIFF(year, BirthDate, getdate()) AS Age
+FROM HumanResources.Employee
+WHERE DATEDIFF(year, BirthDate, getdate()) >
+(
+	SELECT AVG(DATEDIFF(year, BirthDate, getdate()))
+	FROM HumanResources.Employee
+) + 20
+ORDER BY Age DESC
+
+SELECT *
+FROM Person.Person
+
+SELECT *
+FROM Sales.SalesOrderHeader
+
+SELECT *
+FROM Person.Person
+WHERE BusinessEntityID IN 
+(
+	SELECT CustomerID
+	FROM Sales.SalesOrderHeader
+)
+
+
+SELECT *
+FROM Sales.SalesOrderDetail
+
+SELECT *
+FROM Production.Product
+WHERE ProductID IN
+(
+	SELECT DISTINCT ProductID
+	FROM Sales.SalesOrderDetail
+)
+
+USE AdventureWorksLT2012
+GO
+
+SELECT *
+FROM SalesLT.SalesOrderHeader
+WHERE SalesOrderID = 71774
+
+SELECT *
+FROM SalesLT.SalesOrderDetail
+WHERE SalesOrderID = 71774
+
+SELECT *
+FROM SalesLT.SalesOrderHeader AS soh
+JOIN SalesLT.SalesOrderDetail AS sod
+ON soh.SalesOrderID = sod.SalesOrderID
+WHERE soh.SalesOrderID = 71774
+
+SELECT *
+FROM SalesLT.Customer
+
+SELECT *
+FROM SalesLT.Address
+
+SELECT *
+FROM SalesLT.CustomerAddress
+
+SELECT *
+FROM SalesLT.Customer AS c
+JOIN SalesLT.CustomerAddress AS ca
+ON c.CustomerID = ca.CustomerID
+JOIN SalesLT.Address AS a
+ON ca.AddressID = a.AddressID​
