@@ -1,0 +1,102 @@
+USE AdventureWorksLT2012
+GO
+
+SELECT *
+FROM SalesLT.Customer
+
+SELECT FirstName, LastName
+FROM SalesLT.Customer
+
+SELECT FirstName + ' ' + LastName AS FullName
+FROM SalesLT.Customer
+
+SELECT FirstName + ' ' + MiddleName + ' '+ LastName AS FullName
+FROM SalesLT.Customer
+
+SELECT FirstName + ' ' + ISNULL(MiddleName, '') + ' '+ LastName AS FullName
+FROM SalesLT.Customer
+
+SELECT COUNT(*)
+FROM SalesLT.Customer
+
+SELECT COUNT(FirstName)
+FROM SalesLT.Customer
+
+SELECT COUNT(MiddleName)
+FROM SalesLT.Customer
+
+SELECT COUNT(DISTINCT FirstName)
+FROM SalesLT.Customer
+
+SELECT COUNT(DISTINCT LastName)
+FROM SalesLT.Customer
+
+SELECT COUNT(DISTINCT City)
+FROM SalesLT.Address
+
+SELECT DISTINCT City
+FROM SalesLT.Address
+
+SELECT COUNT(DISTINCT CountryRegion)
+FROM SalesLT.Address
+
+SELECT COUNT(AddressLine1) 
+FROM SalesLT.Address
+WHERE CountryRegion = 'Canada'
+
+SELECT COUNT(DISTINCT AddressLine1) 
+FROM SalesLT.Address
+WHERE CountryRegion = 'Canada'
+
+--GROUP BY clause
+SELECT CountryRegion, COUNT(AddressLine1) AS 'Number of Addresses'
+FROM SalesLT.Address
+GROUP BY CountryRegion
+
+SELECT CountryRegion, City, COUNT(AddressLine1) AS 'Number of Addresses'
+FROM SalesLT.Address
+GROUP BY CountryRegion, City
+
+SELECT Firstname, COUNT(FirstName) AS 'Frequency'
+FROM SalesLT.Customer
+GROUP BY FirstName
+ORDER BY Frequency DESC
+
+SELECT TOP 10 Firstname, COUNT(FirstName) AS 'Frequency'
+FROM SalesLT.Customer
+GROUP BY FirstName
+ORDER BY Frequency DESC
+
+SELECT TOP 10 Lastname, COUNT(Lastname) AS 'Frequency'
+FROM SalesLT.Customer
+GROUP BY Lastname
+ORDER BY Frequency DESC
+
+SELECT DISTINCT FirstName
+FROM SalesLT.Customer
+WHERE FirstName LIKE 'B%'
+
+SELECT DISTINCT LastName
+FROM SalesLT.Customer
+WHERE LastName LIKE '%son'
+
+SELECT DISTINCT LastName
+FROM SalesLT.Customer
+WHERE LastName LIKE '%john%'
+
+SELECT AddressLine1, City, CountryRegion, PostalCode
+FROM SalesLT.Address
+WHERE PostalCode LIKE '[7-9]%'
+
+SELECT AddressLine1, City, CountryRegion, PostalCode
+FROM SalesLT.Address
+WHERE PostalCode LIKE '[135]%'
+
+SELECT AddressLine1, City, CountryRegion, PostalCode
+FROM SalesLT.Address
+WHERE PostalCode LIKE '[^135]%'
+
+SELECT DISTINCT(Lastname)
+FROM SalesLT.Customer
+WHERE Lastname LIKE '[aeiou]%'
+ORDER BY LastName
