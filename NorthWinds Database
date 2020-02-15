@@ -1,0 +1,15 @@
+USE Northwind
+GO
+/*All products are in the database
+SELECT productName from products;
+*Products which have the category ID of 6
+SELECT productName from products where CategoryID = 6 ;
+* Products that have a category ID of 6 and are discontinued (value of 1)
+SELECT productName from products where CategoryID = 6 and Discontinued = 1;
+* Products that have a Quantity per unit of 24
+SELECT productName from products where QuantityPerUnit LIKE '24%';
+*Products Tthat have a suppliier of 26
+SELECT productName from products where SupplierID LIKE '26%';
+SELECT productName from products where UnitsInStock > 30 ;
+*Products have a units in stock less than or equal to 35
+SELECT productName from products where UnitsInStock < = 35 ;*/
