@@ -1,0 +1,12 @@
+/*SQL Island, learn more at https://sql-island.informatik.uni-kl.de/*/
+
+/*Let see who is on this remote island...*/
+SELECT name FROM inhabitant;
+/* I feeel hungry... what about a steak for supper? Let's see who is the butcher!*/
+SELECT name FROM inhabitant WHERE job='butcher';
+/*Humm eating alone is kind of lame; let's see who we can be friend with down here (:*/
+SELECT name FROM inhabitant WHERE state='friendly';
+/* ***Wild animals sounds*** Hum... there may be some danger down here... let see if there any friendly weaponsmiths so we can get something to defend ourselves if need it to...*/
+SELECT name FROM inhabitant WHERE state = 'friendly' and job= 'weaponsmith';
+/*We may need a grill to cook the steaks on, let see if there any smith on the island who can make us one!*/
+SELECT name FROM inhabitant WHERE state LIKE  'f%' and job LIKE 'sm%';
